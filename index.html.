@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BIGKIKS — Les sneakers dans ta pointure</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 6%;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #777;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at center, #202020 0%, #080808 45%, #050505 75%);
+    }
+
+    .tag {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #aaa;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 100px);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -5px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #bbb;
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 35px;
+    }
+
+    .sizes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 650px;
+    }
+
+    .size {
+      background: #111;
+      border: 1px solid #333;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: .2s;
+      font-weight: bold;
+    }
+
+    .size:hover,
+    .size.active {
+      background: white;
+      color: black;
+      border-color: white;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 70px 6%;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #888;
+      margin-bottom: 35px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .product {
+      background: #101010;
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 18px;
+      transition: .25s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      border-color: #444;
+    }
+
+    .shoe {
+      height: 190px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1d1d1d, #080808);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin-bottom: 18px;
+    }
+
+    .product h3 {
+      margin-bottom: 8px;
+    }
+
+    .brand {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .availability {
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .available {
+      color: #55d66b;
+    }
+
+    .interested {
+      width: 100%;
+      border: 0;
+      padding: 13px;
+      border-radius: 8px;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .interested:hover {
+      background: #ddd;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 80px 20px;
+      border-top: 1px solid #222;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 30px 6%;
+      color: #666;
+      border-top: 1px solid #222;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BIG<span>KIKS</span></div>
+
+  <nav>
+    <a href="#sneakers">Sneakers</a>
+    <a href="#concept">Concept</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="tag">Sneakers • Grandes pointures</div>
+
+  <h1>BIGKIKS</h1>
+
+  <p>
+    Les sneakers que tu veux.
+    Dans la pointure que les autres n'ont pas.
+  </p>
+
+  <div class="sizes">
+    <button class="size" onclick="selectSize(this)">45</button>
+    <button class="size" onclick="selectSize(this)">46</button>
+    <button class="size" onclick="selectSize(this)">47</button>
+    <button class="size" onclick="selectSize(this)">48</button>
+    <button class="size" onclick="selectSize(this)">49</button>
+    <button class="size" onclick="selectSize(this)">50</button>
+    <button class="size" onclick="selectSize(this)">51</button>
+    <button class="size" onclick="selectSize(this)">52</button>
+    <button class="size" onclick="selectSize(this)">53</button>
+    <button class="size" onclick="selectSize(this)">54</button>
+  </div>
+
+</section>
+
+<section class="section" id="sneakers">
+
+  <h2 class="section-title">Sélection BIGKIKS</h2>
+
+  <p class="section-subtitle">
+    Des modèles tendance pensés pour les grandes pointures.
+  </p>
+
+  <div class="products">
+
+    <div class="product">
+      <div class="shoe">👟</div>
+      <h3>Street Runner</h3>
+      <div class="brand">BIGKIKS EDITION</div>
+      <div class="availability">
+        <span class="available">● Grandes pointures recherchées</span>
+      </div>
+      <button class="interested" onclick="interest('Street Runner')">
+        Je veux cette paire
+      </button>
+    </div>
+
+    <div class="product">
+      <div class="shoe">👟</div>
+      <h3>Urban Black</h3>
+      <div class="brand">BIGKIKS EDITION</div>
+      <div class="availability">
+        <span class="available">● Grandes pointures recherchées</span>
+      </div>
+      <button class="interested" onclick="interest('Urban Black')">
+        Je veux cette paire
+      </button>
+    </div>
+
+    <div class="product">
+      <div class="shoe">👟</div>
+      <h3>Retro High</h3>
+      <div class="brand">BIGKIKS EDITION</div>
+      <div class="availability">
+        <span class="available">● Grandes pointures recherchées</span>
+      </div>
+      <button class="interested" onclick="interest('Retro High')">
+        Je veux cette paire
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="cta" id="concept">
+
+  <h2>Ta pointure existe.</h2>
+
+  <p>
+    BIGKIKS est conçu pour les sneakers en grandes pointures.
+  </p>
+
+  <button class="interested" onclick="interest('Demande générale')">
+    Je cherche une paire
+  </button>
+
+</section>
+
+<footer>
+  BIGKIKS — MVP 2026
+</footer>
+
+<script>
+
+function selectSize(button) {
+
+  document.querySelectorAll('.size').forEach(function(size) {
+    size.classList.remove('active');
+  });
+
+  button.classList.add('active');
+
+  alert(
+    "Pointure " +
+    button.innerText +
+    " sélectionnée. BIGKIKS va rechercher les modèles disponibles dans cette taille."
+  );
+}
+
+function interest(product) {
+
+  const email = prompt(
+    "Quelle est ton adresse e-mail pour être prévenu(e) ?"
+  );
+
+  if (email) {
+
+    alert(
+      "Merci ! Nous avons enregistré ton intérêt pour : " +
+      product
+    );
+
+  }
+}
+
+</script>
+
+</body>
+</html>
